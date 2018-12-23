@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Timer by Khanze</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    function timer (seconds, tick, result) {
+if (seconds > 0) {
+  tick(seconds);
+  seconds -= 1;
+  setTimeout(function () {
+    timer(seconds, tick, result);
+  }, 1000);
+} else {
+  result();
+}
+}
+
+
+
+timer(15, function (s) {
+	document.write('Прошло ' + s + ' секунд!','\n');
+}, function () {
+	document.write('Время вышло!');
+});
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
