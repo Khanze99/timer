@@ -5,27 +5,30 @@
     <title>Timer by Khanze</title>
     <link rel="stylesheet" href="style.css">
     <script>
-    function timer (seconds, tick, result) {
-if (seconds > 0) {
-  tick(seconds);
-  seconds -= 1;
-  setTimeout(function () {
-    timer(seconds, tick, result);
-  }, 1000);
-} else {
-  result();
-}
-}
+    var time = prompt("На сколько поставить таймер?")
+    time = parseInt(time)
+    function doIt() {
 
+      i = time
+      var idInt = setInterval(function(){
+        if (i <= 20){
 
+          document.getElementById("siteTime").style.color = "purple";
+        }
+        document.getElementById("siteTime").innerHTML = i;
+        if (i == 0) {
 
-timer(15, function (s) {
-	document.write('Прошло ' + s + ' секунд!','\n');
-}, function () {
-	document.write('Время вышло!');
-});
+          clearInterval(idInt);
+          alert("Время вышло!");
+          document.getElementByTagName("p").innerHTML = "Вы опоздали";
+        }
+        i = i - 1;
+      }, 1000);
+
+    }
     </script>
   </head>
-  <body>
+  <body onLoad = "doIt();">
+    <p style="font-weight:bold;" align="center">  <span id="siteTime"></span></p>
   </body>
 </html>

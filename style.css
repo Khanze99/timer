@@ -1,0 +1,12 @@
+p {
+  color: purple;
+  font-family: serif;
+  font-size: 100px;
+}
+body {
+  background-size: auto;
+  background: linear-gradient(to top left, purple, crimson, orangered, gold);
+  background-repeat: no-repeat;
+  font-family: ObelixPro;
+
+}
